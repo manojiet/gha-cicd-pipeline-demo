@@ -9,4 +9,4 @@ jobs:
           echo "Cloning the repository..."
           echo "Github context: ${{ toJson(github) }}"
           git clone https://github.com/${{github.repository}}.git myFolder
-          cd myFolder ls -la
+          cd myFolder && ls -la
