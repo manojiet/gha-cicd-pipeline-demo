@@ -4,6 +4,8 @@ on:
     branches: [main]
     path_ignore:  
     - ".github/workflows**"
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 jobs:
   test:
@@ -51,3 +53,5 @@ jobs:
         uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+  
