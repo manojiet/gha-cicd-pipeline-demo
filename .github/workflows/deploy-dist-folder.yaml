@@ -12,7 +12,7 @@ jobs:
     - name: Cloning the repository
       uses: actions/checkout@v6
     - name: Setup Node.js and install dependencies
-      uses: ./.github/action/setupnode
+      uses: ./.github/actions/setupnode
       with:
         node-version: 20
     - name: Run tests
@@ -24,14 +24,14 @@ jobs:
       - name: Cloning the repository
         uses: actions/checkout@v6
       - name: Setup Node.js and install dependencies
-        uses: ./.github/action/setupnode
+        uses: ./.github/actions/setupnode
       - name: Build the project
         run: npm run build
       - name: Upload dist folder
         uses: actions/upload-artifact@v4
         with:
           name: dist-folder
-          path: dist
+          path: dist/
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -40,7 +40,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: dist-folder
-          path: dist
+          path: dist/
       - name: Deploying dist folder
         run: |
           echo "Deploying dist folder..."
