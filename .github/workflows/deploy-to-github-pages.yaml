@@ -5,7 +5,7 @@ on:
     path_ignore:  
     - ".github/workflows**"
   pull_request:
-    branches: [main]
+    branches: [feature-mk]
   workflow_dispatch:
 jobs:
   test:
