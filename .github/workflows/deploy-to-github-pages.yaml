@@ -33,9 +33,9 @@ jobs:
           name: dist-folder
           path: dist
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     # Add a dependency to the build job
-    needs: build
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
