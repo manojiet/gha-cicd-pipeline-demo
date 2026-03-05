@@ -9,14 +9,18 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node.js and install dependencies
-        uses: ./.github/action/setupnode
-      - name: Run tests
-        run: npm test
+    - name: Cloning the repository
+      uses: actions/checkout@v6
+    - name: Setup Node.js and install dependencies
+      uses: ./.github/action/setupnode
+    - name: Run tests
+      run: npm test
   build:
     needs: test
     runs-on: ubuntu-latest
     steps:
+      - name: Cloning the repository
+        uses: actions/checkout@v6
       - name: Setup Node.js and install dependencies
         uses: ./.github/action/setupnode
       - name: Build the project
