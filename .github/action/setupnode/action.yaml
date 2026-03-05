@@ -3,8 +3,6 @@ description: This action sets up the Node.js environment for the workflow and in
 runs:
   using: "composite"
   steps:
-    - name: Cloning the repository
-      uses: actions/checkout@v6
     - name: setup Node.js
       uses: actions/setup-node@v6
       with:
