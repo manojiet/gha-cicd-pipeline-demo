@@ -28,7 +28,7 @@ jobs:
       - name: Build the project
         run: npm run build
       - name: Upload dist folder
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist-folder
           path: dist
@@ -49,9 +49,6 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v3 # or specific "vX.X.X" version tag for this action
+        uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-
-  
-
