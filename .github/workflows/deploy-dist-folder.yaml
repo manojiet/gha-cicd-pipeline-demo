@@ -19,6 +19,7 @@ jobs:
       - name: Job is completed
         run: echo "Job is completed successfully!"
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Cloning the repository
@@ -31,5 +32,11 @@ jobs:
         run: npm install
       - name: Build the project
         run: npm run build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cloning the repository
+        uses: actions/checkout@v6
   
 
