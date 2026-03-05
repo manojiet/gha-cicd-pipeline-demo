@@ -1,5 +1,10 @@
 name: run test
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches: [main]
+    path_ignore:  
+    - '.github/workflows**'
+  workflow_dispatch:
 jobs:
   test:
     runs-on: ubuntu-latest
