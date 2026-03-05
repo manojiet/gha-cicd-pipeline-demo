@@ -1,0 +1,20 @@
+name: Setup Node.js amd install its dependencies
+description: This action sets up the Node.js environment for the workflow and installs its dependencies
+runs:
+  using: "composite"
+  steps:
+    - name: Cloning the repository
+      uses: actions/checkout@v6
+    - name: setup Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: '22'
+    - name: Cache node modules
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+    - name: Install dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: npm install
